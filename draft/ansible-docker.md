@@ -103,4 +103,4 @@ minutes to start, a Docker container will take under a second.
 > Another paragraph so that the ending isn't too abrupt.
 
 If you want to find out more on the subject, see my slides from the
-January London Docker meetup.
+[January London Docker meetup](https://speakerdeck.com/gerhardlazu/ansible-and-docker-the-path-to-continuous-delivery-part-1).
