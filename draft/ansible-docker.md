@@ -1,10 +1,8 @@
 # Why Ansible and Docker?
 
-There is a lot of interest from the tech community in both Docker and
-Ansible, I am hoping that after reading this article you will share our
-enthusiasm. You will also gain a practical insight into using Ansible
-and Docker for setting up a complete server environment for a Rails
-application.
+There is a lot of interest from the tech community in both [Docker](https://www.docker.io/) and
+[Ansible](https://github.com/ansible/ansible), I am hoping that after reading this article you will share our enthusiasm. You will also gain a practical insight into using Ansible
+and Docker for setting up a complete server environment for a Rails application.
 
 Let me start by addressing the elephant in the room. Many reading this
 might be asking, "Why don't you just use Heroku?" And the answer is because
