@@ -6,12 +6,12 @@ enthusiasm. You will also gain a practical insight into using Ansible
 and Docker for setting up a complete server environment for a Rails
 application.
 
-Let me start by addressing the elephant in the room: why don’t you just
-use Heroku? Because I can run this on any host, with any provider.
-Because I prefer flexibility over convenience. I can run anything in
-this manner, not just web applications. Last but not least, because I am
-a tinkerer at heart, I get a kick from understanding how pieces fit
-together.
+Let me start by addressing the elephant in the room. Many reading this
+might be asking, "Why don't you just use Heroku?" And the answer is because
+I can run this on any host, with any provider. Because I prefer flexibility
+over convenience. Because I can run anything in this manner, not just
+web applications. Last but not least, because I am a tinkerer
+at heart, I get a kick from understanding how all the pieces fit together.
 
 ## Why Ansible?
 
