@@ -1,8 +1,11 @@
-# The Why and How of Ansible and Docker?
+# The Why and How of Ansible and Docker
 
-There is a lot of interest from the tech community in both [Docker](https://www.docker.io/) and
-[Ansible](https://github.com/ansible/ansible), I am hoping that after reading this article you will share our enthusiasm. You will also gain a practical insight into using Ansible
-and Docker for setting up a complete server environment for a Rails application.
+There is a lot of interest from the tech community in both
+[Docker](https://www.docker.io/) and
+[Ansible](https://github.com/ansible/ansible), I am hoping that after
+reading this article you will share our enthusiasm. You will also gain a
+practical insight into using Ansible and Docker for setting up a
+complete server environment for a Rails application.
 
 Let me start by addressing the elephant in the room. Many reading this
 might be asking, "Why don't you just use Heroku?" And the answer is because
@@ -161,11 +164,26 @@ minutes to start, a Docker container will take under a second.
 
 ## Conclusion
 
-> Reader take-aways
+Ansible made me re-discover the joy of managing infrastructures. Docker
+gives me confidence and stability when dealing with the most important
+step of application development, the delivery phase. In combination, they
+are unmatched.
 
-I gave a talk at the January London Docker meetup on this subject, you
-will [find the slides on
+To go from no server to a fully deployed Rails application in just under
+12 minutes is impressive by any standard. To get a very basic Continuous
+Integration system for free and be able to preview branches side-by-side
+the live application, without affecting it in any way, is incredibly
+powerful. Even if this approach doesn't offer the redundancy and
+scalability required by a production environment, it brings it within
+reach of regular individuals like you and me. This makes me very
+excited, and having reached the end of the article, I can only hope that
+by now you share the same enthusiasm.
+
+I gave a talk at the January 2014 London Docker meetup on this subject,
+[I have shared the slides on
 Speakerdeck](https://speakerdeck.com/gerhardlazu/ansible-and-docker-the-path-to-continuous-delivery-part-1).
 
 If you want to be updated every week of articles like this one,
 subscribe to [The Changelog Weekly](http://thechangelog.com/weekly/).
+
+Until next time, Gerhard.
