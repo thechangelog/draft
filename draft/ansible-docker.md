@@ -183,7 +183,7 @@ I gave a talk at the January 2014 London Docker meetup on this subject,
 [I have shared the slides on
 Speakerdeck](https://speakerdeck.com/gerhardlazu/ansible-and-docker-the-path-to-continuous-delivery-part-1).
 
-If you want to be updated every week of articles like this one,
-subscribe to [The Changelog Weekly](http://thechangelog.com/weekly/).
+To get updated weekly with articles like this,
+subscribe to [The Changelog Weekly](http://thechangelog.com/weekly/) -- it ships every Saturday.
 
-Until next time, Gerhard.
+Until next time, [Gerhard](https://twitter.com/gerhardlazu).
