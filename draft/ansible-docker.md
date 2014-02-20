@@ -1,8 +1,10 @@
+# Why Ansible and Docker?
+
 There is a lot of interest from the tech community in both Docker and
 Ansible, I am hoping that after reading this article you will share our
 enthusiasm. You will also gain a practical insight into using Ansible
 and Docker for setting up a complete server environment for a Rails
-application. 
+application.
 
 Let me start by addressing the elephant in the room: why don’t you just
 use Heroku? Because I can run this on any host, with any provider.
@@ -67,7 +69,7 @@ application dependencies.
 First, the application code will be cloned remotely from a git
 repository. Since Ansible runs all remote commands via SSH, the keys in
 my local agent will be forwarded with the session, no git credentials
-will be cached or stored remotely. 
+will be cached or stored remotely.
 
 ## Docker and application dependencies
 
@@ -101,7 +103,7 @@ announcement](http://blog.docker.io/2013/10/docker-0-6-5-links-container-naming-
 My application also comes with a Dockerfile which is specific about the
 Ruby Docker image that is required. As this is already build, the steps
 in my Dockerfile have the confidence that the correct Ruby version is
-available to them. 
+available to them.
 
 <pre>
 FROM howareyou/ruby:2.0.0-p353
