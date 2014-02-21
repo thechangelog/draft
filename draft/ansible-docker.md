@@ -185,10 +185,10 @@ are unmatched.
 To go from no server to a fully deployed Rails application in just under
 12 minutes is impressive by any standard. To get a very basic Continuous
 Integration system for free and be able to preview different versions of
-an application side-by-side the "live" version, without affecting it in
-any way, is incredibly powerful. This makes me very excited, and having
-reached the end of the article, I can only hope that you share my
-excitement.
+an application side-by-side, without affecting the "live" version which
+runs on the same hosts in any way, is incredibly powerful. This makes me
+very excited, and having reached the end of the article, I can only hope
+that you share my excitement.
 
 I gave a talk at the January 2014 London Docker meetup on this subject,
 [I have shared the slides on
