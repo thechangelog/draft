@@ -10,12 +10,12 @@ complete server environment for a Rails application.
 Many reading this might be asking, "Why don't you just use Heroku?".
 First of all, I can run Docker and Ansible on any host, with any
 provider.  Secondly, I prefer flexibility over convenience. I can run
-anything in this manner, not just web applications. Last of all, because
-I am a tinkerer at heart, I get a kick from understanding how all the
-pieces fit together. The fundamental building block of Heroku is the
-Linux Container (or LXC for short). The same technology lies at the
-heart of Docker's versatility. As a matter of fact, one of Docker's
-mottoes is: "Containerization is the new virtualization".
+anything in this manner, not just web applications. Last but not least,
+because I am a tinkerer at heart, I get a kick from understanding how
+all the pieces fit together. The fundamental building block of Heroku is
+the Linux Container. The same technology lies at the heart of Docker's
+versatility. As a matter of fact, one of Docker's mottoes is:
+"Containerization is the new virtualization".
 
 ## Why Ansible?
 
@@ -27,12 +27,11 @@ considerable amount of effort for a relatively small gain. With
 [Ansible](http://ansible.com), there’s data describing infrastructure on
 one hand, and the constraints of the interactions between various
 components on the other hand. It’s a much simpler model that enables me
-to get done a lot more by letting me focus on what makes my
-infrastructure personal. Similar to the Unix model, Ansible provides
-simple modules with a single responsibility that can be combined in
-endless ways.
+to move quicker by letting me focus on what makes my infrastructure
+personal. Similar to the Unix model, Ansible provides simple modules
+with a single responsibility that can be combined in endless ways.
 
-Ansible has no dependencies other than python and ssh. It doesn’t
+Ansible has no dependencies other than Python and SSH. It doesn’t
 require any agents to be set up on the remote hosts and it doesn’t leave
 any traces after it runs either. What’s more, it comes with an
 extensive, built-in library of modules for controlling everything from
@@ -45,7 +44,7 @@ between.
 and convenient way of deploying a process on a host. This can be
 anything from mysqld to redis, to a Rails application. Just like git
 snapshots and distributes code in the most efficient way, Docker does
-the same for processes. It guarantees that everything required to run
+the same with processes. It guarantees that everything required to run
 that process will be available regardless of the host that it runs on.
 
 A common but understandable mistake is to treat a Docker container as a
@@ -70,9 +69,9 @@ application dependencies.
 
 Ansible runs all remote commands via SSH. My SSH keys stored in the
 local ssh-agent will be shared remotely during Ansible's SSH sessions.
-When my application code will be cloned or updated remotely, no git
-credentials will be required, the forwarded ssh-agent will be used to
-authenticate with the git host.
+When my application code will be cloned or updated on remote hosts, no
+git credentials will be required, the forwarded ssh-agent will be used
+to authenticate with the git host.
 
 ## Docker and application dependencies
 
@@ -119,14 +118,14 @@ RUN \
   echo '. /.profile && cd /terrabox && RAILS_ENV=test bundle exec rake db:create db:migrate && bundle exec rspec' > /test ;\
 # END RUN
 
-CMD . /.profile && cd /terrabox && export RAILS_ENV=production && rake db:create db:migrate && foreman start web
+CMD . /.profile && cd /terrabox && export RAILS_ENV=production && rake db:create db:migrate && bundle exec unicorn -c config/unicorn.rails.conf.rb
 
 EXPOSE 3000</code></pre>
 
 The first step is to copy all my application's code into the Docker
 image and load the global environment variables added by previous
-images. The Ruby image for example will append `PATH` configuration
-which ensures that the correct Ruby binary gets loaded first.
+images. The Ruby Docker image for example will append `PATH`
+configuration which ensures that the correct Ruby version gets loaded.
 
 Next, I remove the git history as this is not useful in the context of a
 Docker container. I install all the gems and then create a `test` script
@@ -150,18 +149,19 @@ running inside the Docker container.
 For a medium-sized Rails application, with about 100 gems and just as
 many integration tests running under Rails, this takes 8 minutes and 16
 seconds on a 2GB and 2 core instance, without any local Docker images.
-If I already had the images on that host, this would drop to 4 minutes
-and 45 seconds. Furthermore, if I had a master application image to base
-a new image build of the same application, this would drop to a mere 2
-minutes and 23 seconds. To put this into perspective, it takes me just
-over 2 minutes to deploy a new version of my Rails application,
-including dependent services such as MySQL and Redis.
+If I already had Ruby, MySQL & Redis Docker images on that host, this
+would take 4 minutes and 45 seconds. Furthermore, if I had a master
+application image to base a new Docker image build of the same
+application, this would take a mere 2 minutes and 23 seconds. To put
+this into perspective, it takes me just over 2 minutes to deploy a new
+version of my Rails application, including dependent services such as
+MySQL and Redis.
 
 I would like to point out that my application deploys also run a full
 test suite which alone takes about a minute end-to-end. Without
 intending, Docker became a simple Continuous Integration environment
 that leaves test-only containers behind for inspection when tests fail,
-or starts new application containers with the latest version of my
+or starts a new application container with the latest version of my
 application when the test suite passes. All of a sudden, I can validate
 new code with my customers in minutes, with the guarantee that different
 versions of my application are isolated from one another, all the way to
@@ -182,7 +182,7 @@ are unmatched.
 To go from no server to a fully deployed Rails application in just under
 12 minutes is impressive by any standard. To get a very basic Continuous
 Integration system for free and be able to preview different versions of
-my application side-by-side the "live" version, without affecting it in
+an application side-by-side the "live" version, without affecting it in
 any way, is incredibly powerful. This makes me very excited, and having
 reached the end of the article, I can only hope that you share my
 excitement.
