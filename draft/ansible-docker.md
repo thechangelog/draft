@@ -7,12 +7,15 @@ reading this article you will share our enthusiasm. You will also gain a
 practical insight into using Ansible and Docker for setting up a
 complete server environment for a Rails application.
 
-Let me start by addressing the elephant in the room. Many reading this
-might be asking, "Why don't you just use Heroku?" And the answer is because
-I can run this on any host, with any provider. Because I prefer flexibility
-over convenience. Because I can run anything in this manner, not just
-web applications. Last but not least, because I am a tinkerer
-at heart, I get a kick from understanding how all the pieces fit together.
+Many reading this might be asking, "Why don't you just use Heroku?".
+First of all, I can run Docker and Ansible on any host, with any
+provider.  Secondly, I prefer flexibility over convenience. I can run
+anything in this manner, not just web applications. Last of all, because
+I am a tinkerer at heart, I get a kick from understanding how all the
+pieces fit together. The fundamental building block of Heroku is the
+Linux Container (or LXC for short). The same technology lies at the
+heart of Docker's versatility. As a matter of fact, one of Docker's
+mottoes is: "Containerization is the new virtualization".
 
 ## Why Ansible?
 
@@ -44,8 +47,6 @@ anything from mysqld to redis, to a Rails application. Just like git
 snapshots and distributes code in the most efficient way, Docker does
 the same for processes. It guarantees that everything required to run
 that process will be available regardless of the host that it runs on.
-Processeses now have a social side, they always come with friends, ready
-for action.
 
 A common but understandable mistake is to treat a Docker container as a
 VM. The [Single Responsibility
@@ -59,7 +60,7 @@ philosophy, it makes for a solid foundation to build on.
 
 Without leaving my terminal, I can have Ansible provision a new instance
 for me with any of the following: Amazon Web Services, Linode, Rackspace
-or DigitalOcean. To be more precise, I can have Ansible create a new
+or DigitalOcean. To be more specific, I can have Ansible create a new
 DigitalOcean 2GB droplet in Amsterdam 2 region in precisely 1 minute and
 25 seconds. In a further 1 minute and 50 seconds I can have the system
 setup with Docker and a few other personal preferences. Once I have this
@@ -67,16 +68,17 @@ base system in place, I can deploy my application.  Notice that I didn't
 setup any database or programming language. Docker will handle all
 application dependencies.
 
-First, the application code will be cloned remotely from a git
-repository. Since Ansible runs all remote commands via SSH, the keys in
-my local agent will be forwarded with the session, no git credentials
-will be cached or stored remotely.
+Ansible runs all remote commands via SSH. My SSH keys stored in the
+local ssh-agent will be shared remotely during Ansible's SSH sessions.
+When my application code will be cloned or updated remotely, no git
+credentials will be required, the forwarded ssh-agent will be used to
+authenticate with the git host.
 
 ## Docker and application dependencies
 
-I find it perplexing that most developers are specific about the version
-of the programming language which their application needs, the version
-of the dependencies in the form of Python packages, Ruby gems or node.js
+I find it amusing that most developers are specific about the version of
+the programming language which their application needs, the version of
+the dependencies in the form of Python packages, Ruby gems or node.js
 modules, but when it comes to something as important as the database or
 the message queue, they just use whatever is available in the
 environment that the application runs. I believe this is one of the
@@ -96,14 +98,14 @@ gerhard/redis:2.8
 The Ansible playbook will notice this file and will instruct Docker to
 pull the correct images from the Docker index and start them as
 containers. It also links these service containers to my application
-container. If you want to find out more details about how Docker
-container links work, refer to the [Docker 0.6.5
+container. If you want to find out how Docker container linking works,
+refer to the [Docker 0.6.5
 announcement](http://blog.docker.io/2013/10/docker-0-6-5-links-container-naming-advanced-port-redirects-host-integration/).
 
 My application also comes with a Dockerfile which is specific about the
-Ruby Docker image that is required. As this is already build, the steps
-in my Dockerfile have the confidence that the correct Ruby version is
-available to them.
+Ruby Docker image that is required. As this is already built, the steps
+in my Dockerfile will have the guarantee that the correct Ruby version
+will be available to them.
 
 <pre><code class="no-highlight">FROM howareyou/ruby:2.0.0-p353
 
@@ -124,21 +126,26 @@ EXPOSE 3000</code></pre>
 The first step is to copy all my application's code into the Docker
 image and load the global environment variables added by previous
 images. The Ruby image for example will append `PATH` configuration
-which ensures that the correct Ruby binary gets loaded first. Next, I
-remove the git history as this is not useful in the context of a Docker
-container. I install all the gems and then create a `test` script which
-will be run by the test-only container. The purpose of this is to have a
-"canary" which ensures that the application and all its dependencies are
-properly resolved, that the Docker containers are linked correctly and
-all tests pass before the actual application container will be started.
-The command that gets run when a new web application container gets
-started can be seen in the `CMD` step. The last instruction in this
-application's Dockerfile maps port 3000 from inside the container to an
-automatically allocated port on the host that runs Docker. This is the
-port that the reverse proxy or load balancer will use when proxying
-public requests to my application.
+which ensures that the correct Ruby binary gets loaded first.
 
-## Time to setup an application with all its dependencies
+Next, I remove the git history as this is not useful in the context of a
+Docker container. I install all the gems and then create a `test` script
+which will be run by the test-only container. The purpose of this is to
+have a "canary" which ensures that the application and all its
+dependencies are properly resolved, that the Docker containers are
+linked correctly and all tests pass before the actual application
+container will be started.
+
+The command that gets run when a new web application container gets
+started is defined in the `CMD` step.
+
+The last instruction in this application's Dockerfile maps port 3000
+from inside the container to an automatically allocated port on the host
+that runs Docker. This is the port that the reverse proxy or load
+balancer will use when proxying public requests to my application
+running inside the Docker container.
+
+## Running a Rails application inside a Docker container
 
 For a medium-sized Rails application, with about 100 gems and just as
 many integration tests running under Rails, this takes 8 minutes and 16
@@ -148,16 +155,22 @@ and 45 seconds. Furthermore, if I had a master application image to base
 a new image build of the same application, this would drop to a mere 2
 minutes and 23 seconds. To put this into perspective, it takes me just
 over 2 minutes to deploy a new version of my Rails application,
-including dependent services such as MySQL and Redis. This deploy also
-includes a full test suite run which alone takes about a minute
-end-to-end. Without intending, Docker became a simple Continuous
-Integration environment that leaves test-only containers behind for
-inspection when tests fail, or starts new application containers
-containing the latest version of my application. All of a sudden, I can
-validate new code with my customers in minutes, with the guarantee that
-different versions of my application are isolated from one another, all
-the way to the operating system. Unlike traditional VMs which take
-minutes to start, a Docker container will take under a second.
+including dependent services such as MySQL and Redis.
+
+I would like to point out that my application deploys also run a full
+test suite which alone takes about a minute end-to-end. Without
+intending, Docker became a simple Continuous Integration environment
+that leaves test-only containers behind for inspection when tests fail,
+or starts new application containers with the latest version of my
+application when the test suite passes. All of a sudden, I can validate
+new code with my customers in minutes, with the guarantee that different
+versions of my application are isolated from one another, all the way to
+the operating system. Unlike traditional VMs which take minutes to boot,
+a Docker container will take under a second. Furthermore, once a Docker
+image is built and tests pass for a specific version of my application,
+I can have this image pushed into a private Docker registry, waiting to
+be pulled by other Docker hosts and started as a new Docker container,
+all within seconds.
 
 ## Conclusion
 
@@ -168,13 +181,11 @@ are unmatched.
 
 To go from no server to a fully deployed Rails application in just under
 12 minutes is impressive by any standard. To get a very basic Continuous
-Integration system for free and be able to preview branches side-by-side
-the live application, without affecting it in any way, is incredibly
-powerful. Even if this approach doesn't offer the redundancy and
-scalability required by a production environment, it brings it within
-reach of regular individuals like you and me. This makes me very
-excited, and having reached the end of the article, I can only hope that
-by now you share the same enthusiasm.
+Integration system for free and be able to preview different versions of
+my application side-by-side the "live" version, without affecting it in
+any way, is incredibly powerful. This makes me very excited, and having
+reached the end of the article, I can only hope that you share my
+excitement.
 
 I gave a talk at the January 2014 London Docker meetup on this subject,
 [I have shared the slides on
