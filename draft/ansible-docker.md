@@ -194,7 +194,6 @@ I gave a talk at the January 2014 London Docker meetup on this subject,
 [I have shared the slides on
 Speakerdeck](https://speakerdeck.com/gerhardlazu/ansible-and-docker-the-path-to-continuous-delivery-part-1).
 
-To get updated weekly with articles like this,
-subscribe to [The Changelog Weekly](http://thechangelog.com/weekly/) -- it ships every Saturday.
+For more Ansible and Docker content, subscribe to [The Changelog Weekly](http://thechangelog.com/weekly/) -- it ships every Saturday and regularly includes the week's best links for both topics.
 
 Until next time, [Gerhard](https://twitter.com/gerhardlazu).
