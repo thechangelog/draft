@@ -92,7 +92,7 @@ file:
 
 <pre><code class="no-highlight">gerhard/mysql:5.5
 gerhard/redis:2.8
-</pre>
+</code></pre>
 
 The Ansible playbook will notice this file and will instruct Docker to
 pull the correct images from the Docker index and start them as
