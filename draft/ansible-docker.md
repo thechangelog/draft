@@ -89,8 +89,7 @@ My application defines dependencies on processes such as MySQL 5.5 and
 Redis 2.8 by including the following `.docker_container_dependencies`
 file:
 
-<pre>
-gerhard/mysql:5.5
+<pre><code class="no-highlight">gerhard/mysql:5.5
 gerhard/redis:2.8
 </pre>
 
@@ -106,8 +105,7 @@ Ruby Docker image that is required. As this is already build, the steps
 in my Dockerfile have the confidence that the correct Ruby version is
 available to them.
 
-<pre>
-FROM howareyou/ruby:2.0.0-p353
+<pre><code class="no-highlight">FROM howareyou/ruby:2.0.0-p353
 
 ADD ./ /terrabox
 
@@ -121,8 +119,7 @@ RUN \
 
 CMD . /.profile && cd /terrabox && export RAILS_ENV=production && rake db:create db:migrate && foreman start web
 
-EXPOSE 3000
-</pre>
+EXPOSE 3000</code></pre>
 
 The first step is to copy all my application's code into the Docker
 image and load the global environment variables added by previous
