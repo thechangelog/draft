@@ -115,10 +115,12 @@ RUN \
   rm -fr /terrabox/.git ;\
   cd /terrabox ;\
   bundle install --local ;\
-  echo '. /.profile && cd /terrabox && RAILS_ENV=test bundle exec rake db:create db:migrate && bundle exec rspec' > /test ;\
+  echo '. /.profile && cd /terrabox && RAILS_ENV=test bundle exec rake db:create db:migrate && bundle exec rspec' > /test-terrabox ;\
+  echo '. /.profile && cd /terrabox && export RAILS_ENV=production && rake db:create db:migrate && bundle exec unicorn -c config/unicorn.rails.conf.rb' > /run-terrabox ;\
 # END RUN
 
-CMD . /.profile && cd /terrabox && export RAILS_ENV=production && rake db:create db:migrate && bundle exec unicorn -c config/unicorn.rails.conf.rb
+ENTRYPOINT ["/bin/bash"]
+CMD ["/run-terrabox"]
 
 EXPOSE 3000</code></pre>
 
@@ -128,15 +130,16 @@ images. The Ruby Docker image for example will append `PATH`
 configuration which ensures that the correct Ruby version gets loaded.
 
 Next, I remove the git history as this is not useful in the context of a
-Docker container. I install all the gems and then create a `test` script
-which will be run by the test-only container. The purpose of this is to
-have a "canary" which ensures that the application and all its
-dependencies are properly resolved, that the Docker containers are
-linked correctly and all tests pass before the actual application
-container will be started.
+Docker container. I install all the gems and then create a
+`/test-terrabox` command which will be run by the test-only container.
+The purpose of this is to have a "canary" which ensures that the
+application and all its dependencies are properly resolved, that the
+Docker containers are linked correctly and all tests pass before the
+actual application container will be started.
 
 The command that gets run when a new web application container gets
-started is defined in the `CMD` step.
+started is defined in the `CMD` step. The `/run-terrabox` command was
+defined part of the build process, right after the test one.
 
 The last instruction in this application's Dockerfile maps port 3000
 from inside the container to an automatically allocated port on the host
