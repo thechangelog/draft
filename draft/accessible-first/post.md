@@ -1,50 +1,50 @@
 # Accessible-first
 
-Building an accessible product sounds so obvious, yet it is very often overlooked or perceived as a separate entity from the product. I have also fallen victim to this frame of thought. Only after having worked on several accessibility-related projects did version 3.4 of [pickadate.js](http://amsul.ca/pickadate.js) come out with some ARIA controls. Not implementing it sooner was mostly due to not having the time, but partly also due to me expecting it to be a bit of a daunting task.
+Building an accessible product sounds so obvious, yet it is very often overlooked or perceived as a separate entity of the product. I, myself, have fallen victim to this frame of thought. Only after having worked on several accessibility-related projects did version 3.4 of [pickadate.js](http://amsul.ca/pickadate.js) come out with some ARIA controls. Not implementing it sooner was mostly due to a lack of time, but partly also due to me expecting it to be a daunting task.
 
-I’d like to stress here [how](http://www.w3.org/WAI/intro/accessibility.php#important) [crucial](http://webaccessibility.jhu.edu/what-is-accessibility/important.html) [accessibility](http://www.visionaustralia.org/business-and-professionals/digital-access/why-accessibility-is-important) [on the web](http://eip.reach.ca/default/main/products/service-provider-s-companion/english/the-importance-of-accessibility.html) has become. If your product isn’t accessible, it means that it doesn’t *really* fully function. Yes, you might have customers coming to your site - but a large population of visitors will not even be given the chance to be your customer simply because they cannot access it!
+I’d like to stress here [how](http://www.w3.org/WAI/intro/accessibility.php#important) [crucial](http://webaccessibility.jhu.edu/what-is-accessibility/important.html) [accessibility](http://www.visionaustralia.org/business-and-professionals/digital-access/why-accessibility-is-important) [on the web](http://eip.reach.ca/default/main/products/service-provider-s-companion/english/the-importance-of-accessibility.html) has become. If your product isn’t accessible, it means that it doesn’t *really* fully function. Yes, you might have customers coming to your site - but a large population of visitors will not even be given the chance to be your customer, simply because they cannot access it!
 
 It’s like architecting a building without planning for elevators.
 
-It leaves a lost opportunity by not being inclusive. And heck, it’s even [the law now in several countries](http://www.aodacompliance.com/)! So I think we ought to spend a little time learning the basics of how one can build a plan for accessibility.
+It leaves a lost opportunity by not being inclusive. And heck, it’s even [the law now in several countries](http://www.aodacompliance.com/). So I think we ought to spend a little time learning the basics of building an accessible application.
 
 
 ## All about the semantics
 
-HTML (specifically HTML5) tries to inherently be semantic enough to kick start an accessible application. Screen readers know how to navigate content based on your markup flow:
+HTML (specifically HTML5) tries to inherently be semantic enough to kick start an accessible application. Screen readers know how to navigate and prioritize content based on your markup flow:
 
 ```html
 <body>
-    <header></header>
-    <aside></aside>
-    <main>
-    	<header></header>
-    	<article></article>
-    	<footer></footer>
-    </main>
-    <footer></footer>
+	<header></header>
+	<aside></aside>
+	<main>
+		<header></header>
+		<article></article>
+		<footer></footer>
+	</main>
+	<footer></footer>
 </body>
 ```
 
-However, HTML semantics alone cannot appropriately define all possible types of content in an application. And that’s when [ARIA](http://www.w3.org/TR/wai-aria/) controls come in.
+However, HTML semantics alone cannot appropriately describe all possible content types in an application. And that’s when [ARIA](http://www.w3.org/TR/wai-aria/) controls come in.
 
 
 ## ARIA (Accessible Rich Internet Applications)
 
 ARIA controls give us the ability to define our own semantics where HTML falls short. These definitions are categorized into four [roles](http://www.w3.org/TR/wai-aria/roles#roles_categorization):
 
-1. **[Landmark roles](http://www.w3.org/TR/wai-aria/roles#landmark_roles)** define the general regions within an application. These become “navigational landmarks” for a screen reader - sort of like “Jump to”s.
-2. **[Document structure roles](http://www.w3.org/TR/wai-aria/roles#document_structure_roles)** add semantics to the organization of content in a page. They are usually not interactive.
+1. **[Landmark roles](http://www.w3.org/TR/wai-aria/roles#landmark_roles)** define the general regions within an application that become “navigational landmarks” for screen readers - sort of like “Jump to”s.
+2. **[Document structure roles](http://www.w3.org/TR/wai-aria/roles#document_structure_roles)** add semantics to content organization in a page and are usually not interactive.
 3. **[Widget roles](http://www.w3.org/TR/wai-aria/roles#widget_roles)** describe components of UI widgets.
-4. **[Abstract roles](http://www.w3.org/TR/wai-aria/roles#abstract_roles)** just define the ontology of other role types. They are *not* to be used in an application.
+4. **[Abstract roles](http://www.w3.org/TR/wai-aria/roles#abstract_roles)** just define the ontology of other role types. These are *not* to be used in an application.
 
-The spec documentation is a bit dry to read through, but essentially, there are three basic steps to start building an accessible application:
+The spec documentation is a bit dry to read through, but essentially, there are three basic steps to building an accessible application:
 
 1. Start by architecting the **landmark** roles,
 2. Then build out the **document structure** roles, and
 3. Finally, create the individual **widget** roles.
 
-There’s a [long list of roles](http://www.w3.org/TR/wai-aria/roles#role_definitions) that fall under these categories. We will be looking into the most fun part (widget roles) and use a date picker as an example UI component.
+There’s a [long list of roles](http://www.w3.org/TR/wai-aria/roles#role_definitions) that fall under these categories. We will be looking at the most fun part (widget roles) and use a date picker as an example UI component.
 
 
 ### Widget roles
@@ -61,38 +61,38 @@ So, let’s say the basic interaction for the date picker we want is that the us
 ```html
 <input>
 <table>
-    ...
+	...
 	<tr>
 		...
-        <td>19</td>
+		<td>19</td>
 		<td>20</td>
 		...
 	</tr>
-    ...
+	...
 </table>
 ```
 
-A screen reader visiting this markup sees two disparate pieces of DOM elements. One an `input` that semantically acceps a value, and the other a `table` that semantically displays tabular data.
+A screen reader visiting this markup sees two disparate pieces of DOM elements. One an `input` that semantically accepts a value, and the other a `table` that semantically displays tabular data.
 
-Already, it seems as though we have a problem with those semantics. We aren’t using this `table` for tabular data. We’re using it to visually present the content in a grid layout - which is just easily achievable with the native `table` element.
+Already, we have a problem with those semantics. We aren’t using this `table` for tabular data. We’re using it to visually present the content in a grid layout - which is just easily achieved with the native `table` element.
 
-In order to correct this, we can redefine the role of our `table` element.
+In order to correct this, we need to redefine the role of our `table`.
 
-It is crucial to note here that most semantic HTML elements cannot have their roles redefined. Only [certain elements](http://rawgithub.com/w3c/aria-in-html/master/index.html#rec) allow for redefinition of their semantics to certain roles. For the most part, `div`s and `span`s can be redefined to mean anything.
+It is crucial to note here that most semantic HTML elements cannot have their roles redefined. Only [certain elements can be redefined certain other roles](http://rawgithub.com/w3c/aria-in-html/master/index.html#rec). For the most part, `div`s and `span`s can be redefined to mean anything.
 
-Going through the [long list of roles](http://www.w3.org/TR/wai-aria/roles#role_definitions) reveals that the most appropriate role for our scenario is the [composite `grid` role](http://www.w3.org/TR/wai-aria/roles#grid). The `grid` role requires that there be at least one element with the role of `gridcell` contained by an element by the role of `row`, which in turn is owned by the `grid`.
+Anyways, from the [long list of roles](http://www.w3.org/TR/wai-aria/roles#role_definitions), the most appropriate role for our scenario is the [composite `grid` role](http://www.w3.org/TR/wai-aria/roles#grid). The `grid` role requires that there be at least one element with the role of `gridcell` contained by an element with the role of `row`, which in turn is owned by the `grid`.
 
 Essentially that means the following roles need to be in our markup:
 
 ```html
 <input>
 <table role="grid">
-    <tr role="row">
-        ...
-        <td role="gridcell">19</td>
-        <td role="gridcell">20</td>
-        ...
-    </tr>
+	<tr role="row">
+		...
+		<td role="gridcell">19</td>
+		<td role="gridcell">20</td>
+		...
+	</tr>
 </table>
 ```
 
@@ -101,32 +101,56 @@ When a screen reader comes across the markup above, the following accessibility 
 ```html
 <input></input>
 <grid>
-    <row>
-        ...
-        <gridcell></gridcell>
-        <gridcell></gridcell>
-        ...
-    </row>
+	<row>
+		...
+		<gridcell></gridcell>
+		<gridcell></gridcell>
+		...
+	</row>
 </grid>
 ```
 
-Redefining the semantic meaning of the `table` container and content within.
+... redefining the semantic meaning of the `table` container and content within.
+
+There’s [many more roles](http://www.w3.org/TR/wai-aria/roles#role_definitions) that could fit this scenario - it all depends on the interaction behavior we want the widget to have. An important role to be aware of is [`presentation`](http://www.w3.org/TR/wai-aria/roles#presentation). This role removes all semantic meaning from an element:
+
+```html
+<h1 role="presentation">I will be semantic-less</h1>
+<span>I am inherently without any semantics</span>
+<ul role="presentation">
+	<li>I have no semantics either</li>
+	<li>But I have <b>some</b></li>
+</ul>
+```
+
+When the screen reader sees this markup, the accessibility tree looks like this:
+
+```html
+<>I will be semantic-less</>
+<>I am inherently without any semantics</>
+<>
+	<>I have no semantics either</>
+	<>But I have <b>some</b></>
+</>
+```
+
+Note that `div`s and `span`s are by definition already semantic-less. And any semantic HTML element that expects certain children elements will strip their semantics as well.
 
 
 ### Globally inherited states and properties
 
-According to the ARIA spec, every element inherits a [list of global states and properties](http://www.w3.org/TR/wai-aria/states_and_properties#global_states) that describe the UI component’s... well, current states and properties. These properties can be used to describe contextual relationships with other elements.
+Every element inherits some [global states and properties](http://www.w3.org/TR/wai-aria/states_and_properties#global_states) that describe it’s... well, states and properties.
 
-Looking back at our accessibility tree, there is another issue. The elements sit as two disparate DOM elements with no connection to each other. However, we want to describe a parent/child relationship between the `input` and the `table` to appropriately represent the composite widget.
+Looking back at our accessibility tree, we still need to address the hierarchal issue. The elements sit as two disparate DOM elements with no connection to each other. However, we want to describe a parent/child relationship between the `input` and the `table` to appropriately represent the composite widget.
 
-So we use the [`aria-owns`](http://www.w3.org/TR/wai-aria/states_and_properties#aria-owns) property by passing a space separated list of element IDs that it “contains” but cannot already be semantically inferred from the DOM:
+So, we use the [`aria-owns` property](http://www.w3.org/TR/wai-aria/states_and_properties#aria-owns) by passing a space separated list of element IDs that it “contains” but cannot already be semantically inferred from the DOM:
 
 ```html
 <input aria-owns="datepicker_table">
-<table id="datepicker_table" role="grid">
+<table role="grid" id="datepicker_table">
 	<tr role="row">
 		...
-        <td role="gridcell">19</td>
+		<td role="gridcell">19</td>
 		<td role="gridcell">20</td>
 		...
 	</tr>
@@ -140,7 +164,7 @@ When the screen reader now comes across this markup, it renders the following ac
 	<grid>
 		<row>
 			...
-            <gridcell></gridcell>
+			<gridcell></gridcell>
 			<gridcell></gridcell>
 			...
 		</row>
@@ -153,28 +177,28 @@ That’s more like it. Now the `grid` is “contained” by the `input` as we in
 
 ### Role inherited states and properties
 
-So far we’ve only talked about attributes that allow us to define semantics and relationships between types of elements. But UI components also inherit further states and properties based on their `role` definition. These states must be updated as the user interacts with the UI.
+So far we’ve only talked about attributes that allow us to define semantics and relationships between types of elements. But UI components also inherit further states and properties based on their `role` definition. These states must be updated as the user interacts with the widget.
 
-To fix our date picker example, we need to make two changes that describe the behavior of:
+To fix our date picker example, we need to make two additions that will describe:
 
-1. Selecting a `gridcell` “controlling” some other UI component’s value, and
-2. The `gridcell` being selecting should be put it into a “selected” state.
+1. That the `gridcell`s “control” the value of the `input element, and
+2. Which `gridcell` is currently selected.
 
-To do so, the `gridcell` role inherits the property [`aria-controls`](http://www.w3.org/TR/wai-aria/states_and_properties#aria-controls) (that expects the ID of an element whose value it controls) and the state [`aria-selected`](http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected) (that determines it’s selected state):
+To do so, the `gridcell` role inherits the [`aria-controls` property](http://www.w3.org/TR/wai-aria/states_and_properties#aria-controls) (that expects the ID of an element whose value it controls) and the [`aria-selected` state](http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected) (that determines it’s selected state):
 
 ```html
 <input id="datepicker" aria-owns="datepicker_table">
-<table id="datepicker_table" role="grid">
-    <tr role="row">
-        ...
-        <td role="gridcell" aria-controls="datepicker">19</td>
-        <td role="gridcell" aria-controls="datepicker" aria-selected="true">20</td>
-        ...
-    </tr>
+<table role="grid" id="datepicker_table">
+	<tr role="row">
+		...
+		<td role="gridcell" aria-controls="datepicker">19</td>
+		<td role="gridcell" aria-controls="datepicker" aria-selected="true">20</td>
+		...
+	</tr>
 </table>
 ```
 
-This tells the screen reader that the UI component this element controls has this contained `gridcell` as “selected”.
+This tells the screen reader that the UI component the `gridcell` controls has this option as “selected”.
 
 We’re now starting to scratch the surface of what’s capable in building an interactive accessible widget. There’s a whole list of more [widget](http://www.w3.org/TR/wai-aria/states_and_properties#attrs_widgets) and [global](http://www.w3.org/TR/wai-aria/states_and_properties#global_states) states and properties that we can use to make this a fuller and more complex widget.
 
@@ -183,16 +207,16 @@ For example, if the picker actually expands/collapses on focus/blur, then we wou
 ```html
 <input id="datepicker" aria-owns="datepicker_table" aria-haspopup="true">
 <table id="datepicker_table" role="grid" aria-hidden="true">
-    <tr role="row">
-        ...
-        <td role="gridcell" aria-controls="datepicker">19</td>
-        <td role="gridcell" aria-controls="datepicker" aria-selected="true">20</td>
-        ...
-    </tr>
+	<tr role="row">
+		...
+		<td role="gridcell" aria-controls="datepicker">19</td>
+		<td role="gridcell" aria-controls="datepicker" aria-selected="true">20</td>
+		...
+	</tr>
 </table>
 ```
 
-And switch the `table`’s `aria-hidden` to `false` when the picker opens.
+And then switch the `table`’s `aria-hidden` to `false` when the picker opens.
 
 
 ## Learn by doing
