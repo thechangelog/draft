@@ -1,6 +1,10 @@
-# Sinon matchers
+# This week I learned about Sinon Matchers
 
-I am a huge fan of Sinon for test spies, stubs, fake timers, etc – but I continually learn new things about it. *This week I learned* about [sinon matchers](http://sinonjs.org/docs/#matchers).
+<img src="/wp-content/uploads/dcneiner.jpg" width="45" class="float-left" />Editor's note: This is a guest post by <a href="https://github.com/dcneiner">Doug Neiner</a>. Doug is a Senior Software Engineer at <a href="http://leankit.com/">LeanKit</a>, and <a href="http://thechangelog.com/membership/">a supporting community member</a>. Each week we invite our <a href="http://thechangelog.com/membership/">community members</a> to share something they've learned in our member's Slack room and we choose someone's TWIL to post on the blog. This post originally appeared here on The Changelog <a href="https://github.com/thechangelog/draft/blob/master/published/sinon-matchers/post.md">#</a>.
+
+<hr/>
+
+I'm a huge fan of [Sinon](http://sinonjs.org/) for test spies, stubs, fake timers, etc – but I continually learn new things about it. *This week I learned* about [sinon matchers](http://sinonjs.org/docs/#matchers).
 
 While some of us were pairing on a test case at LeanKit this week, we needed to verify part of an object passed into a method we were stubbing.
 
@@ -32,9 +36,6 @@ stub.should.be.calledWith( "topicName", sinon.match( { some: "object" } ) );
 
 You can use `regexp`, `string` and other matchers as well including a custom function matcher and nested matchers. I can't wait to use these more in our tests going forward.
 
-
 ---
-
-Link: [http://sinonjs.org/docs/#matchers)
 
 Tags: Sinon, Testing, TWIL
