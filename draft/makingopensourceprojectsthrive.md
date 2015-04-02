@@ -60,8 +60,6 @@ But just creating an awesome README didn't kickstart the impressive growth of ss
 ####Step 2: Recruit core contributors
 "If you build it... they may not come" should be the rallying cry of all open source work. As proof of this, Andrey embedded a bounty in the code of one of his projects, promising $5 to anyone who issued a simple pull request to remove the file. As of today, no one has yet claimed the free money.
 
-<image> "bounty"
-
 To spread the word about ssh-chat, Andrey started asking for help, asking for improvements, and finding ways to bring more people into the project. In order to help build interest, Andrey reached out to people on Twitter and offered free Go programming lessons in exchange for opening pull requests. This overcame the initial inertia of getting a few people involved and interested in the project. These early contributors eventually became champions of ssh-chat and started answering questions on Stack Overflow.
 
 Another component of building and maintaining open source projects is learning to be inclusive. "Accepting pull requests very generously, and very graciously" was a key step in building more community interest and is something that many open-source authors miss in the beginning. And asking specific people to make a pull request was much more effective than making more generalized asks of his Twitter followers. 
@@ -77,9 +75,6 @@ Other opportunities for connecting with contributors that worked for urllib3 and
 2. Participate in discussions on Hacker News, reddit/r/programming, etc.
 3. Sell to other open-source projects and establish partnerships with them. "The only reason urllib3 is the most popular third-party Python library today is because it's part of <a target="_blank" href="https://sourcegraph.com/github.com/kennethreitz/requests">requests</a>."
 4. Feed the non-trolls: Getting upvotes on your announcement post is only half the equation. More activity and discussion yields more people clicking on it and more updates, so if you respond to almost every comment, then that's 2x as many comments. 
-
-<image> "what would you rather click"
-
 
 ####Step 4: Profit?
 "We want to be like Docker!" Don't we all?
