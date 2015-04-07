@@ -1,35 +1,37 @@
-# OSS Support
+# Are We Taking OpenSource For Granted?
 
 Free software. It's not _really_ free. Time, effort, innovation and labor go
 into developing the open source projects that we use and sometimes can't live
-without. A lot of these projects live in the background, known only to those
-that dig into the low level building blocks of the net or in the lower depths
-of the application layer of open and closed operating systems (see the EULA of
-OSX and you'll see open source projects listed). Many open source projects find
+without. A lot of these projects live in the background. Many are known only to
+those that look under the hood. But these code bases are the building blocks
+of the net; the "dependencies" in our apps and OSs (see the EULA of OSX and
+you'll see open source projects listed). Many open source projects find
 funding through sales of support, licenses, and by hosting. But quite a few are
-just put out there and sometimes they find there way into the tool boxes of
+just put out there and sometimes they find their way into the tool boxes of
 devs and designers, to the point where they almost become ubiquitous.
 
 When you think about it, how many of the open source projects that you use all
-the time are not heavily funded operations? VI, Emacs, heck even small tools
-like sed to niche languages like tcl or lua. These are all entrenched and still
-active. They may receive funding through the Free Software Foundation and
-donations, but when was the last time you paid any money or gave anything back
-to the developers of that editor, that library, that module that you always
-turn too? 
+the time are not heavily funded operations? VI, Emacs, heck even tools like
+[sed][link_sed] to niche languages like [Tcl][link_tcl] or [Lua][link_lua].
+These are all entrenched and still active. They may receive funding through the
+Free Software Foundation and donations, but when was the last time you paid any
+money or gave anything back to the developers of that editor, that library,
+that module that you always turn to?
+
+
 
 ## Inspiration
 
-This topic was inspired by an event that occurred today, February 5 2015. The
-_story_ of an open source project was showcased to the world. The showcase was
-not made in a big way, I learned about it through a Slashdot RSS. But when
-GnuPG curator, Werner Koch, published a blog post breaking down the costs of
-maintaining that project the response was made in a big way. That blog post was
-made back in December but the word seemed to get out today and in one day over
-$200K in donations were pledged to keep the project alive. The largest
-donations were made by the [Free Software Foundation's Core Infrastructure
-Initiative][link_cii] ($60K), [Facebook][link_gnupg_fb] ($50K), and
-[Stripe][link_stripe] ($50K).
+This topic was inspired by an event that occurred [February 5 2015][link_feb5].
+The _story_ of an open source project was showcased to the world. The showcase
+was not published in a big way, I learned about it through a Slashdot RSS. But
+when GnuPG curator, Werner Koch, wrote a blog [post][link_koch] breaking down
+the costs of maintaining that project, he received a large response. That blog
+post was made back in December but then one day the following February, word
+finally got out. That day over $200K in donations were pledged to keep the
+project alive. The largest donations were made by the [Free Software
+Foundation's Core Infrastructure Initiative][link_cii] ($60K),
+[Facebook][link_gnupg_fb] ($50K), and [Stripe][link_stripe] ($50K).
 
 Here are some related links:
 
@@ -39,16 +41,20 @@ Here are some related links:
 ## Concerns
 
 GnuPG is only one example of backbone software projects that comprise the core
-ecosystem that is the net. There are many others. A concerning notion is that
-in a time when privacy concerns, brought about by government and overreaching
-commercial entities, is the fact that many secure services are maintained by a
-hand full of developers. These secure services are really at the front lines in
+of the internet's ecosystem. There are many others. A concerning notion is that
+in a time when privacy concerns &mdash; brought about by government and overreaching
+commercial entities &mdash; is the fact that many secure services are maintained by a
+handfull of developers. These secure services are really at the front lines in
 defending privacy on the net.  Awesome as these devs are, there is only so much
 a few people can do. Bugs exists and no amount of coverage testing is going to
-find them _all_.  Similarly, take for example the [HeartBleed][link_heartbleed]
-event with OpenSSL. It surprised many to learn of the state that code base
-was in and the lack of maintainers that library had. So much so that the
-[OpenBSD decided to fork and refactor the project][link_openbsd]. 
+find them _all_ (_Have you every reached 100% coverage?_).
+
+Similar events have occurred. For example, [HeartBleed][link_heartbleed], a bug
+found in the TLS implementation of OpenSSL. It surprised many to learn of the
+state that codebase was in and that it had a lack of maintainers. So much so
+that the [OpenBSD project decided to fork and refactor it][link_openbsd].
+Another event (though less threatening) was [Shell Shock][link_shellshock],
+which was a vulnerability in Bash's interpeter.
 
 **What are some other entrenched projects out there that are under funded/under
 resourced? What are their stories?**
@@ -64,7 +70,12 @@ Tags: FOSS, Linux Foundation, Core Infrastructure, Facebook, Stripe
 [link_cii]: http://www.linuxfoundation.org/programs/core-infrastructure-initiative
 [link_stripe]: https://twitter.com/stripe/status/563449352635432960
 [link_heartbleed]: https://en.wikipedia.org/wiki/Heartbleed
+[link_lua]: http://lua.org
+[link_tcl]: http://tcl.tk
+[link_sed]: https://www.gnu.org/software/sed/
+[link_koch]:https://gnupg.org/blog/20141214-gnupg-and-g10.html
+[link_feb5]: http://www.propublica.org/article/the-worlds-email-encryption-software-relies-on-one-guy-who-is-going-broke
+[link_shellshock]: https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-6271
 
 This leaves only one thing left to do... _I need to come up with an idea that
 the community will pay me full time to code!_
-
