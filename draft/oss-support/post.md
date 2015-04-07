@@ -22,16 +22,17 @@ that module that you always turn to?
 
 ## Inspiration
 
-This topic was inspired by an event that occurred [February 5 2015][link_feb5].
+This topic was inspired by an event that occurred [February 5, 2015][link_feb5]. 
 The _story_ of an open source project was showcased to the world. The showcase
-was not published in a big way, I learned about it through a Slashdot RSS. But
-when GnuPG curator, Werner Koch, wrote a blog [post][link_koch] breaking down
-the costs of maintaining that project, he received a large response. That blog
-post was made back in December but then one day the following February, word
-finally got out. That day over $200K in donations were pledged to keep the
-project alive. The largest donations were made by the [Free Software
-Foundation's Core Infrastructure Initiative][link_cii] ($60K),
-[Facebook][link_gnupg_fb] ($50K), and [Stripe][link_stripe] ($50K).
+was not anything special, it was just a blog post and I only learned about it
+through a Slashdot RSS. But when GnuPG curator, Werner Koch, wrote a blog
+[post][link_koch] breaking down the costs of maintaining that project, he
+received a large response. That blog post was made back in December but then
+one day the following February, word finally got out. That day over $200K in
+donations were pledged to keep the project alive. The largest donations were
+made by the [Free Software Foundation's Core Infrastructure
+Initiative][link_cii] ($60K), [Facebook][link_gnupg_fb] ($50K), and
+[Stripe][link_stripe] ($50K).
 
 Here are some related links:
 
@@ -47,14 +48,14 @@ commercial entities &mdash; is the fact that many secure services are maintained
 handfull of developers. These secure services are really at the front lines in
 defending privacy on the net.  Awesome as these devs are, there is only so much
 a few people can do. Bugs exists and no amount of coverage testing is going to
-find them _all_ (_Have you every reached 100% coverage?_).
+find them _all_ (_Have you every reached 100% coverage on a substantial project?_).
 
 Similar events have occurred. For example, [HeartBleed][link_heartbleed], a bug
 found in the TLS implementation of OpenSSL. It surprised many to learn of the
 state that codebase was in and that it had a lack of maintainers. So much so
 that the [OpenBSD project decided to fork and refactor it][link_openbsd].
-Another event (though less threatening) was [Shell Shock][link_shellshock],
-which was a vulnerability in Bash's interpeter.
+Another event to touch entrenched open source code, was [Shell Shock][link_shellshock],
+which was a vulnerability in Bash's interpreter.
 
 **What are some other entrenched projects out there that are under funded/under
 resourced? What are their stories?**
