@@ -1,22 +1,22 @@
-# Are We Taking OpenSource For Granted?
+# Are We Taking Open Source For Granted?
 
 Free software. It's not _really_ free. Time, effort, innovation and labor go
-into developing the open source projects that we use and sometimes can't live
-without. A lot of these projects live in the background. Many are known only to
-those that look under the hood. But these code bases are the building blocks
-of the net; the "dependencies" in our apps and OSs (see the EULA of OSX and
-you'll see open source projects listed). Many open source projects find
-funding through sales of support, licenses, and by hosting. But quite a few are
-just put out there and sometimes they find their way into the tool boxes of
-devs and designers, to the point where they almost become ubiquitous.
+into developing the open source projects that we use and often rely on. A lot
+of these projects live in the background. Many are known only to those that
+look under the hood. But these code bases are the building blocks of the net;
+the "dependencies" in our apps and OSs (see the EULA of OS X and you'll see open
+source projects listed). Some open source projects find funding through
+sales of support, licenses, and/or hosting. But quite a few are just put out
+there and sometimes they find their way into the tool boxes of devs and
+designers.
 
 When you think about it, how many of the open source projects that you use all
-the time are not heavily funded operations? VI, Emacs, heck even tools like
-[sed][link_sed] to niche languages like [Tcl][link_tcl] or [Lua][link_lua].
-These are all entrenched and still active. They may receive funding through the
-Free Software Foundation and donations, but when was the last time you paid any
-money or gave anything back to the developers of that editor, that library,
-that module that you always turn to?
+the time are not heavily funded operations? Popular tools like VI/Emacs and tools like
+[sed][link_sed] to niche languages like [Tcl][link_tcl] or [Lua][link_lua]
+are all entrenched and still active. They may receive funding through the
+[Free Software Foundation][link_fsf] and donations, but when was the last time
+you paid any money or gave anything back to the developers of that editor, that
+library, that module that you always turn to?
 
 
 
@@ -77,6 +77,5 @@ Tags: FOSS, Linux Foundation, Core Infrastructure, Facebook, Stripe
 [link_koch]:https://gnupg.org/blog/20141214-gnupg-and-g10.html
 [link_feb5]: http://www.propublica.org/article/the-worlds-email-encryption-software-relies-on-one-guy-who-is-going-broke
 [link_shellshock]: https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-6271
+[link_fsf]: http://fsf.org
 
-This leaves only one thing left to do... _I need to come up with an idea that
-the community will pay me full time to code!_
