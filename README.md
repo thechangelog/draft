@@ -1,6 +1,6 @@
 # Draft
 
-Editorial workflow for thechangelog.com
+Editorial workflow for [changelog.com](https://changelog.com)
 
 ## Basic Usage
 
@@ -13,5 +13,5 @@ Editorial workflow for thechangelog.com
 
 ## Helpful Tips
 
-- Use [Mou](http://mouapp.com/) and the included GitHub CSS to write/preview.
-- Use [this example](published/example/post.md) as a simple reference. [Here's a link](http://thechangelog.com/mac-preferencepane-homebrew-launchdlaunchctl/) to the published version.
+- Use [MacDown](http://macdown.uranusjr.com/) and the included GitHub CSS to write/preview.
+- Use [this example](published/example/post.md) as a simple reference. [Here's a link](https://changelog.com/mac-preferencepane-homebrew-launchdlaunchctl/) to the published version.
