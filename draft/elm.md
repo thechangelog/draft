@@ -10,7 +10,7 @@ The last time I felt this excitement of working with something radically new was
 
 In 2015 functional (reactive) programming advanced in the frontend field and by now every frontend developer should have heard of it. Functional programming paradigms and ideas are influencing JavaScript and its frameworks: [PureScript](http://www.purescript.org/) and [RxJS](https://github.com/Reactive-Extensions/RxJS) are examples for languages and libraries that build on the functional-reactive concepts – [React](https://facebook.github.io/react/) and accompanying libraries are increasingly influenced by the functional trend as well.
 
-But instead of mounting a framework for working in a functional manner on top of our good old JavaScript, Elm is a whole new language that builds on functional paradigms and makes reactive programming a core concept. And even so, it compiles to JavaScript so it can run in the browser. Elm does not try to bring functional programming to JavaScript, but to its developers.
+But instead of mounting a framework for working in a functional manner on top of our good old JavaScript, Elm is a whole new language that builds on functional paradigms and makes reactive programming a core concept. And even so, it compiles to JavaScript so it can run in the browser. Elm does not try to bring functional programming to JavaScript, but _to its developers_.
 
 ### Statically typed, no more runtime errors.
 
