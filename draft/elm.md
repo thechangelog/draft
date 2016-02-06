@@ -20,7 +20,7 @@ Consequently, even the view is statically typed – the templates, which are wr
 
 ### Learning Elm
 
-The Elm syntax might look odd at first – nevertheless it is very clear and does not take much time to get used to in my opinion.
+The Elm syntax might look odd at first – nevertheless it is very clear and does not take much time to get used to, in my experience.
 
 ```elm
 module Main (..) where
