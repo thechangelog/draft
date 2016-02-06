@@ -14,9 +14,9 @@ But instead of mounting a framework for working in a functional manner on top of
 
 ### Statically typed, no more runtime errors.
 
-Opposed to JavaScript, Elm is statically typed. The compiler type checks the code and guarantees to generate reliable code that will not throw any runtime exceptions caused by inconsisted types or undefined variables. The compiler is the centerpiece of Elm and enables many of the interesting features like [very helpful error messages](http://elm-lang.org/blog/compiler-errors-for-humans) that also contain hints for fixing the code or a [package manager that enforces semver](http://elm-lang.org/blog/announce/package-manager) through code analysis.
+As opposed to JavaScript, Elm is statically typed. The compiler type-checks the code and guarantees to generate reliable code that will not throw any runtime exceptions caused by inconsistent types or undefined variables. The compiler is the centerpiece of Elm and enables many of the interesting features like [very helpful error messages](http://elm-lang.org/blog/compiler-errors-for-humans) that also contain hints for fixing the code or a [package manager that enforces semver](http://elm-lang.org/blog/announce/package-manager) through code analysis.
 
-Consequently even the view is statically typed – the templates, which are written in elm-html, are based on the concept of the Virtual DOM, just like in React. Regarding the rendering, elm-html [performs even better than React](http://elm-lang.org/blog/blazing-fast-html) and other JavaScript frameworks, which is due to data immutability and ruling out side effects by usage of pure functions. But rather than comparing the performance the main advantage has to be seen in the fact that [the Elm architecture](https://github.com/evancz/elm-architecture-tutorial) suggests and encourages encapsulation of the view functionality into modular components, which makes them combinable and leads to the creating of reusable modules.
+Consequently, even the view is statically typed – the templates, which are written in elm-html, are based on the concept of the Virtual DOM, just like in React. Regarding the rendering, elm-html [performs even better than React](http://elm-lang.org/blog/blazing-fast-html) and other JavaScript frameworks, which is due to data immutability and ruling out side effects by usage of pure functions. But rather than comparing performance, Elm's main advantage is the fact that [the Elm architecture](https://github.com/evancz/elm-architecture-tutorial) suggests and encourages encapsulation of the view functionality into modular components, which makes them combinable and leads to the creation of reusable modules.
 
 ### Learning Elm
 
@@ -50,9 +50,9 @@ main =
     ]
 ```
 
-Elms standard library is relatively small compared to other languages, but rather than the syntax and core modules its the concepts which need to be learned and understood. Amongst others these are the Elm architecture, immutability and purity as well as [modelling problems the Elm way](http://elm-lang.org/guide/model-the-problem).
+Elms standard library is relatively small compared to other languages, but rather than the syntax and core modules, it's the concepts which need to be learned and understood. Amongst others, these are the Elm architecture, immutability and purity, as well as [modelling problems the Elm way](http://elm-lang.org/guide/model-the-problem).
 
-Elm is on the rise and by now it already gets used in production. It makes frontend developers around the globe happy and my bet is that we will hear more and more about Elm in 2016. So why not get started by diving into Elm yourself?
+Elm is on the rise and it's already being used in production. It makes frontend developers around the globe happy and my bet is that we will hear more and more about Elm in 2016. So why not get started by diving into Elm yourself?
 
 ### Sounds interesting?
 
