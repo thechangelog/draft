@@ -10,7 +10,7 @@ This was written recently by me, describing (in one post) many of the fundamenta
 
 ***[REST API Tutorial](http://www.restapitutorial.com/)***
 
-REST API Tutorial offers a number of tutorials on REST, quick tips, HTTP method use,resource naming, and a number of other REST API best practices. A _must read_.
+*REST API Tutorial* offers a number of tutorials on REST, quick tips, HTTP method use,resource naming, and a number of other REST API best practices. A _must read_.
 
 > Building RESTful web services, like other programming skills is part art, part science. As the Internet industry progresses, creating a REST API becomes more concrete with emerging best practices. As RESTful web services don't follow a prescribed standard except for HTTP, it's important to build your RESTful API in accordance with industry best practices to ease development and increase client adoption.
 
@@ -20,15 +20,15 @@ REST API Tutorial offers a number of tutorials on REST, quick tips, HTTP method 
 
 ***[API Glossary](http://apiglossary.com/), by Mashape***
 
-The Changelog talked a lot about APIs with Ahmad Nassri from Mashape, and after taking a look at some of their free resources, I'm pretty convinced they're the King Kong of APIs. API Glossary is exactly what it sounds like: an open source API Glossary, contributed by Mashape and the larger open source community.
+The Changelog talked a lot about APIs with Ahmad Nassri from Mashape, and after taking a look at some of their free resources, I'm pretty convinced they're the King Kong of APIs. *API Glossary* is exactly what it sounds like: an open source API Glossary, contributed by Mashape and the larger open source community.
 > Learn the lingo of Application Programming Interfaces and the acronyms, design patterns and tools that surround them.
 
-For example, here's API Glossary's quick definition of REST:
+For example, here's *API Glossary's* quick definition of REST:
 > Representational state transfer is an architectural pattern for interacting with resources via HTTP methods.
 
 ***[How REST Constraints Affect API Design](http://sookocheff.com/post/api/how-rest-constraints-affect-api-design/)***
 
-What can I say... after reading this article, I'm convinced Kevin is one of my favourite tech writers. How REST Constraints Affect API Design get's straight to the point: Kevin highlights some of REST's main principles, and how this changes the way an API is designed. One of my favourites!
+What can I say... after reading this article, I'm convinced Kevin is one of my favourite tech writers. How *REST Constraints Affect API Design* get's straight to the point: Kevin highlights some of REST's main principles, and how this changes the way an API is designed. One of my favourites!
 > REST is defined by four interface constraints: identification of resources; manipulation of resources using representations; self-descriptive messages; and, hypermedia as the engine of application state.
 
 > Why is this important for APIs?
@@ -39,7 +39,7 @@ What can I say... after reading this article, I'm convinced Kevin is one of my f
 
 ***[REST - The Short Version](http://exyus.com/articles/rest-the-short-version/)***
 
-If you aren't entirely familiar with all of the terminology of APIs/HTTP/Web related technologies, this shouldn't be your first stop. However, REST - The Short Version is an excellent reference to make sure you're following RESTful principles.
+If you aren't entirely familiar with all of the terminology of APIs/HTTP/Web related technologies, this shouldn't be your first stop. However, *REST - The Short Version* is an excellent reference to make sure you're following RESTful principles.
 > Getting a clear handle on the definition of the REST architectural style can be daunting. While there is no shortage of descriptions available, I did not find many of them helpful at first. Also, as I began talking about REST to colleagues, I often had a difficult time producing clear descriptions for the key points. Over time, however, I sharpened my summary into a version that seemed to make sense to most of my listeners. I offer here my rendition of the REST model.
 
 ***[Choosing an HTTP Status Code - Stop Making It Hard](http://racksburg.com/choosing-an-http-status-code/)***
@@ -49,7 +49,7 @@ A lot of people tend to just use the regular status codes, such as 200, 404, etc
 
 ***[JSON API](http://jsonapi.org/)***
 
-In [episode #189](https://changelog.com/189/), Adam and Jerod talked to Yehuda Katz on JSON API, the JSON specification for building uniform, RESTful APIs. If you haven't taken a look yet, you should: Yehuda and the rest of the contributors to this project put in a lot of effort to bring you, in my opinion, some of the best conventions for handling JSON. If you like Ember.js or Rails, you'll probably like JSON API for its convention-over-configuration approach.
+In [episode #189](https://changelog.com/189/), Adam and Jerod talked to Yehuda Katz on *JSON API*, the JSON specification for building uniform, RESTful APIs. If you haven't taken a look yet, you should: Yehuda and the rest of the contributors to this project put in a lot of effort to bring you, in my opinion, some of the best conventions for handling JSON. If you like Ember.js or Rails, you'll probably like *JSON API* for its convention-over-configuration approach.
 > If you've ever argued with your team about the way your JSON responses should be formatted, JSON API can be your anti-bikeshedding tool.
 
 > By following shared conventions, you can increase productivity, take advantage of generalized tooling, and focus on what matters: your application.
@@ -58,7 +58,7 @@ In [episode #189](https://changelog.com/189/), Adam and Jerod talked to Yehuda K
 
 ***[Awesome-API](https://github.com/Kikobeats/awesome-api)***
 
-For "everything else," take a look at Awesome API. Some of what it references is already in this list, but that just means it's more awesome ;) Once you understand the essentials of RESTful APIs, this is the go-to list for everything else, from Authentication, JSON Web Tokens, OAuth, Media Types, Testing, etc.
+For "everything else," take a look at *Awesome API*. Some of what it references is already in this list, but that just means it's more awesome ;) Once you understand the essentials of RESTful APIs, this is the go-to list for everything else, from Authentication, JSON Web Tokens, OAuth, Media Types, Testing, etc.
 > A curated list of awesome resources for designing and implementing RESTful APIs.
 
 **Summary:**
